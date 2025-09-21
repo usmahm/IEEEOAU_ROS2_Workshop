@@ -174,6 +174,6 @@ Thanks to the following contributors for helping with setup, testing, and docume
 
 - Ahmad Usman
 - Mujeeb Opabode
-- Jelili-Ibrahim Abdul-Azeez  
+- [Jelili-Ibrahim Abdul-Azeez](https://github.com/Azeez-Ibrahim)  
 
 ---
