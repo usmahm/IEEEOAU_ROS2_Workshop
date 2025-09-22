@@ -172,7 +172,7 @@ source /opt/ros/humble/setup.bash
 
 Thanks to the following contributors for helping with setup, testing, and documentation:  
 
-- Ahmad Usman
+- [Ahmad Usman](https://github.com/usmahm)
 - Mujeeb Opabode
 - [Jelili-Ibrahim Abdul-Azeez](https://github.com/Azeez-Ibrahim)  
 
