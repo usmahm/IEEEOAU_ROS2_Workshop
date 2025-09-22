@@ -160,12 +160,6 @@ You now have:
 - ROS 2 Humble fully installed  
 - VS Code integrated with your ROS environment  
 
-⚠️ **Tip:** Always open a new Ubuntu terminal and make sure your ROS environment is sourced:  
-
-```bash
-source /opt/ros/humble/setup.bash
-```
-
 ---
 
 ## 👥 Contributors  
