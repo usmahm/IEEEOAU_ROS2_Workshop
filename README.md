@@ -162,6 +162,53 @@ You now have:
 
 ---
 
+## 🔑 Forgot Your Ubuntu Password?  
+
+If you forget the username or password you created during setup, you can reset it:
+
+1. Open **Command Prompt** and list installed WSL distributions:  
+
+   ```powershell
+   wsl -l
+   ```
+
+   Example output:  
+   ```
+   Windows Subsystem for Linux Distributions:
+   Ubuntu-22.04 (Default)
+   ```
+
+2. Set the default user for Ubuntu to **root**:  
+
+   ```powershell
+   ubuntu2204 config --default-user root
+   ```
+
+3. Open a new Ubuntu terminal (from Start Menu).  
+   You will now be logged in as `root`.
+
+4. Check your current user and find available usernames:  
+
+   ```bash
+   whoami          # shows current user (root)
+   ls /home        # lists all user home directories
+   ```
+
+5. Reset your user’s password (replace `your_username` with the name from step 4):  
+
+   ```bash
+   passwd your_username
+   ```
+
+6. Set your preferred new password.
+
+7. (Optional but recommended) Switch the default user back to your normal account:  
+
+   ```powershell
+   ubuntu2204 config --default-user your_username
+   ```
+
+
 ## 👥 Contributors  
 
 Thanks to the following contributors for helping with setup, testing, and documentation:  
