@@ -38,7 +38,7 @@ ros2 run turtlesim turtle_teleop_key
 
 Now use your keyboard arrows to move the turtle around 🎮.
 
-## (img1)
+![Teleop control](img1.png)
 
 ### 🔹 Inspect the Nodes
 
@@ -110,7 +110,9 @@ code .
 
 <!-- Edit these to include counter -->
 
-### 🔹 Example Publisher (`simple_publisher.py`) - create in 'my_first_pkg\my_first_pkg\simple_publisher.py'
+### 🔹 Example Publisher (`simple_publisher.py`)
+
+Create file: `my_first_pkg/my_first_pkg/simple_publisher.py`
 
 ```python
 import rclpy
@@ -142,7 +144,9 @@ if __name__ == '__main__':
 
 ---
 
-### 🔹 Example Subscriber (`simple_subscriber.py`) - create in 'my_first_pkg\my_first_pkg\simple_subscriber.py'
+### 🔹 Example Subscriber (`simple_subscriber.py`)
+
+Create file: `my_first_pkg/my_first_pkg/simple_subscriber.py`
 
 ```python
 import rclpy
@@ -173,6 +177,28 @@ if __name__ == '__main__':
     main()
 ```
 
+### 🔹 Update `package.xml`
+
+Inside `my_first_pkg/my_first_pkg/package.xml`, add dependencies:
+
+```xml
+<exec_depend>rclpy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+```
+
+### 🔹 Update `setup.py`
+
+Inside `my_first_pkg/my_first_pkg/setup.py`, update `entry_points`:
+
+```python
+entry_points={
+    'console_scripts': [
+        'simple_publisher = my_first_pkg.simple_publisher:main',
+        'simple_subscriber = my_first_pkg.simple_subscriber:main',
+    ],
+},
+```
+
 ---
 
 <!-- setup environment before running nodes -->
@@ -200,19 +226,27 @@ ros2 run my_first_pkg simple_subscriber
 ```
 
 Watch them communicate! 🎉
-(img 3)
+![Publisher & Subscriber](img3.png)
+
+💡 **Try it Yourself**:
+
+- Change the message from `"Hello ROS2!"` to something else.
+- Change the topic name from `"chatter"` to `"greetings"`. What happens?
 
 ---
 
 ## 4. Creating and Using a Service
 
-Let’s add a **service server** and **client**.
+### 🔹 Define a Service
 
-<!-- FIX - creating a new package for this -->
+First, create a new package for interfaces:
 
-### 🔹 Define a Service (`srv/AddTwoInts.srv`)
+```bash
+cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_cmake workshop_interfaces
+```
 
-Inside `my_first_pkg/srv/` create a file:
+Inside `workshop_interfaces/srv/AddTwoInts.srv`:
 
 ```srv
 int64 a
@@ -221,11 +255,37 @@ int64 b
 int64 sum
 ```
 
-Update `package.xml` and `setup.py` to include `srv`.
+Update `CMakeLists.txt`:
+
+```cmake
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/AddTwoInts.srv"
+)
+```
+
+Update `package.xml`:
+
+```xml
+<buildtool_depend>rosidl_default_generators</buildtool_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+```
+
+Rebuild:
+
+```bash
+cd ~/ros2_ws
+colcon build
+source install/setup.bash
+```
 
 ---
 
-### 🔹 Service Server (`add_two_ints_server.py`)
+### 🔹 Service Server Node (`add_two_ints_server.py`)
+
+Create file: `my_first_pkg/my_first_pkg/add_two_ints_server.py`
 
 ```python
 import rclpy
@@ -248,11 +308,16 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
 ```
 
 ---
 
-### 🔹 Service Client (`add_two_ints_client.py`)
+### 🔹 Service Client Node (`add_two_ints_client.py`)
+
+Create file: `my_first_pkg/my_first_pkg/add_two_ints_client.py`
 
 ```python
 import sys
@@ -265,7 +330,7 @@ class AddTwoIntsClient(Node):
         super().__init__('add_two_ints_client')
         self.cli = self.create_client(AddTwoInts, 'add_two_ints')
         while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('Service not available, waiting...')
+            self.get_logger().info('AddTwoInts Service not available, waiting...')
         self.req = AddTwoInts.Request()
 
     def send_request(self, a, b):
@@ -282,17 +347,54 @@ def main(args=None):
     node.get_logger().info(f'Result: {response.sum}')
     node.destroy_node()
     rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+---
+
+### 🔹 Update `package.xml`
+
+Inside `my_first_pkg/my_first_pkg/package.xml`, add dependencies:
+
+```xml
+<exec_depend>rclpy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+```
+
+### 🔹 Update `setup.py`
+
+Inside `my_first_pkg/my_first_pkg/setup.py`, update `entry_points`:
+
+```python
+entry_points={
+    'console_scripts': [
+        'add_two_ints_server = my_first_pkg.add_two_ints_server:main',
+        'add_two_ints_client = my_first_pkg.add_two_ints_client:main',
+    ],
+},
 ```
 
 ---
 
 ### 🔹 Run Service
 
+Rebuild and source:
+
+```bash
+cd ~/ros2_ws
+colcon build
+source install/setup.bash
+```
+
+Run service server:
+
 ```bash
 ros2 run my_first_pkg add_two_ints_server
 ```
 
-In another terminal:
+In another terminal, run service client:
 
 ```bash
 ros2 run my_first_pkg add_two_ints_client 2 3
@@ -304,7 +406,12 @@ Output:
 Result: 5
 ```
 
-## (img 4)
+![Service Example](img4.png)
+
+💡 **Try it Yourself**:
+
+- Modify the service to multiply instead of add.
+- Try sending negative numbers.
 
 ## 🎯 Wrap-Up
 
