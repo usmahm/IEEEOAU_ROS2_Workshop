@@ -153,6 +153,23 @@ This will open VS Code directly from your Ubuntu environment.
 
 ---
 
+## 8. Install Extension in Marketplace on VS Code  
+ 
+1. Go to Extension on VS code by the left side
+2. Search for Robotics Developer Environmer and install
+3. Close the VS code and restart with below:
+
+```bash
+code .
+```
+<img width="1366" height="768" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/03ecfe12-00b3-434c-9749-660b501583f2" />
+
+---
+
+
+
+
+
 ## ✅ You’re Ready!  
 
 You now have:  
@@ -214,7 +231,7 @@ If you forget the username or password you created during setup, you can reset i
 Thanks to the following contributors for helping with setup, testing, and documentation:  
 
 - [Ahmad Usman](https://github.com/usmahm)
-- Mujeeb Opabode
+- [Mujeeb Opabode](https://github.com/Jideco)
 - [Jelili-Ibrahim Abdul-Azeez](https://github.com/Azeez-Ibrahim)  
 
 ---
