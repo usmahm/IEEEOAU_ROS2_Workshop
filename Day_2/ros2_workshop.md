@@ -38,7 +38,7 @@ ros2 run turtlesim turtle_teleop_key
 
 Now use your keyboard arrows to move the turtle around 🎮.
 
-![Teleop control](img1.png)
+![Teleop control](images/1.png)
 
 ### 🔹 Inspect the Nodes
 
@@ -61,7 +61,7 @@ Look inside a topic:
 ros2 topic echo /turtle1/pose
 ```
 
-## (img 2)
+![Teleop inspect](images/2.png)
 
 ### 🔹 Call a Service
 
@@ -226,7 +226,7 @@ ros2 run my_first_pkg simple_subscriber
 ```
 
 Watch them communicate! 🎉
-![Publisher & Subscriber](img3.png)
+![Publisher & Subscriber](images/3.png)
 
 💡 **Try it Yourself**:
 
@@ -359,8 +359,7 @@ if __name__ == '__main__':
 Inside `my_first_pkg/my_first_pkg/package.xml`, add dependencies:
 
 ```xml
-<exec_depend>rclpy</exec_depend>
-<exec_depend>std_msgs</exec_depend>
+<exec_depend>workshop_interfaces</exec_depend>
 ```
 
 ### 🔹 Update `setup.py`
@@ -406,7 +405,7 @@ Output:
 Result: 5
 ```
 
-![Service Example](img4.png)
+![Service Example](images/4.png)
 
 💡 **Try it Yourself**:
 
