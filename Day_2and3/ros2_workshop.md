@@ -403,6 +403,9 @@ ros2 run my_first_pkg add_two_ints_server
 In another terminal, run service client:
 
 ```bash
+cd ~/ros2_ws
+source install/setup.bash
+
 ros2 run my_first_pkg add_two_ints_client 2 3
 ```
 
