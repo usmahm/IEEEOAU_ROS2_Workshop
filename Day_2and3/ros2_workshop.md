@@ -374,6 +374,8 @@ Inside `my_first_pkg/my_first_pkg/setup.py`, update `entry_points`:
 ```python
 entry_points={
     'console_scripts': [
+        'simple_publisher = my_first_pkg.simple_publisher:main',
+        'simple_subscriber = my_first_pkg.simple_subscriber:main',
         'add_two_ints_server = my_first_pkg.add_two_ints_server:main',
         'add_two_ints_client = my_first_pkg.add_two_ints_client:main',
     ],
