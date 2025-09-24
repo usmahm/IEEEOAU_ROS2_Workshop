@@ -204,7 +204,7 @@ entry_points={
 
 <!-- setup environment before running nodes -->
 
-### 🔹 Run the Nodes
+### 🔹 Run the Nodes (On the Ubuntu terminal)
 
 Rebuild and source:
 
