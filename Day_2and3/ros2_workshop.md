@@ -260,7 +260,7 @@ int64 b
 int64 sum
 ```
 
-Update `CMakeLists.txt`:
+Update `workshop_interfaces/CMakeLists.txt`:
 
 ```cmake
 find_package(rosidl_default_generators REQUIRED)
