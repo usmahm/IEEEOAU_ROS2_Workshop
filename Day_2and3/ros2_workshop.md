@@ -290,7 +290,7 @@ Create file: `my_first_pkg/my_first_pkg/add_two_ints_server.py`
 ```python
 import rclpy
 from rclpy.node import Node
-from my_first_pkg.srv import AddTwoInts
+from workshop_interfaces.srv import AddTwoInts
 
 class AddTwoIntsServer(Node):
     def __init__(self):
@@ -323,7 +323,7 @@ Create file: `my_first_pkg/my_first_pkg/add_two_ints_client.py`
 import sys
 import rclpy
 from rclpy.node import Node
-from my_first_pkg.srv import AddTwoInts
+from workshop_interfaces.srv import AddTwoInts
 
 class AddTwoIntsClient(Node):
     def __init__(self):
