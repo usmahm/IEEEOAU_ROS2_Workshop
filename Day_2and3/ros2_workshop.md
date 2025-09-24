@@ -219,7 +219,7 @@ Run publisher:
 ```bash
 ros2 run my_first_pkg simple_publisher
 ```
-On a new terminal
+On a new Ubuntu terminal
 ```bash
 cd ~/ros2_ws
 source install/setup.bash
