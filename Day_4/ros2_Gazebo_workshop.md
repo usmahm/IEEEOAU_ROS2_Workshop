@@ -81,8 +81,12 @@ cd ~/turtlebot3_ws && colcon build --symlink-install
 
 ### 2. Launch TurtleBot3 in Gazebo
 
-With your environment ready:
+```bash
+cd ~/turtlebot3_ws
+source ~/.bashrc
+```
 
+With your environment ready:
 Empty World
 ```bash
 export TURTLEBOT3_MODEL=burger
