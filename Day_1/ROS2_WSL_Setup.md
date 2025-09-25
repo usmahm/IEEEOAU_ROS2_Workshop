@@ -225,13 +225,5 @@ If you forget the username or password you created during setup, you can reset i
    ubuntu2204 config --default-user your_username
    ```
 
-
-## 👥 Contributors  
-
-Thanks to the following contributors for helping with setup, testing, and documentation:  
-
-- [Ahmad Usman](https://github.com/usmahm)
-- [Mujeeb Opabode](https://github.com/Jideco)
-- [Jelili-Ibrahim Abdul-Azeez](https://github.com/Azeez-Ibrahim)  
-
 ---
+

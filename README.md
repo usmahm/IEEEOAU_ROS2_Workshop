@@ -27,3 +27,11 @@ By the end of the bootcamp, participants will:
 - Gain hands-on experience building simple robotics projects
 
 ---
+## 👥 Contributors  
+
+Thanks to the following contributors for helping with setup, testing, and documentation:  
+
+- [Ahmad Usman](https://github.com/usmahm)
+- [Mujeeb Opabode](https://github.com/Jideco)
+- [Jelili-Ibrahim Abdul-Azeez](https://github.com/Azeez-Ibrahim) ~ [LinkedIn](https://www.linkedin.com/in/abdul-azeez1/) ~ [X](https://twitter.com/FutureTechBro)
+---
