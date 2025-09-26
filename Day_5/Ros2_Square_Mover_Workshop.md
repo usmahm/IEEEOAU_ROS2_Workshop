@@ -108,25 +108,9 @@ if __name__ == '__main__':
 
 ---
 
-## 3. Update `package.xml`
+## 3. Understanding the Message Type: `geometry_msgs/Twist`
 
-Now that we’ve written the node, we know it depends on:
-
-- `rclpy` (the Python ROS 2 client library)
-- `geometry_msgs` (for the `Twist` message type)
-
-So open `custom_mover/package.xml` and add these:
-
-```xml
-<build_depend>rclpy</build_depend>
-<build_depend>geometry_msgs</build_depend>
-```
-
----
-
-## 4. Understanding the Message Type: `geometry_msgs/Twist`
-
-Here’s the actual `.msg` definition of **Twist**:
+Here’s the actual `.msg` definition of **Twist** we used:
 
 ```msg
 # This expresses velocity in free space broken into its linear and angular parts.
@@ -148,6 +132,22 @@ float64 z
 - `linear.x` → forward/backward
 - `angular.z` → rotate in place
 - all others → unused in our case
+
+---
+
+## 4. Update `package.xml`
+
+Now that we’ve written the node, we know it depends on:
+
+- `rclpy` (the Python ROS 2 client library)
+- `geometry_msgs` (for the `Twist` message type)
+
+So open `custom_mover/package.xml` and add these:
+
+```xml
+<build_depend>rclpy</build_depend>
+<build_depend>geometry_msgs</build_depend>
+```
 
 ---
 
